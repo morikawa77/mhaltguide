@@ -1,0 +1,57 @@
+---
+import { Heart, Zap, Droplet, Coins, Package, ShoppingBag, Hammer, Sparkles, RotateCcw, Briefcase, Award, XCircle } from 'lucide-react';
+
+interface Props {
+  type: string;
+  value?: number;
+}
+
+const { type, value } = Astro.props;
+
+const getIconColor = (type: string) => {
+  switch (type) {
+    case 'health':
+      return 'text-red-500 bg-red-500/20';
+    case 'power':
+      return 'text-blue-500 bg-blue-500/20';
+    case 'spirit':
+      return 'text-purple-500 bg-purple-500/20';
+    case 'credits':
+      return 'text-yellow-500 bg-yellow-500/20';
+    case 'orbs':
+      return 'text-cyan-500 bg-cyan-500/20';
+    case 'boost':
+      return 'text-green-500 bg-green-500/20';
+    case 'vendor':
+      return 'text-amber-500 bg-amber-500/20';
+    case 'crafter':
+      return 'text-emerald-500 bg-emerald-500/20';
+    case 'artifact':
+      return 'text-orange-500 bg-orange-500/20';
+    case 'retcon':
+      return 'text-indigo-500 bg-indigo-500/20';
+    case 'experience':
+      return 'text-lime-500 bg-lime-500/20';
+    case 'case':
+      return 'text-amber-500 bg-amber-500/20';
+    default:
+      return 'text-gray-500 bg-gray-500/20';
+  }
+};
+---
+
+<div class={`flex items-center justify-center w-8 h-8 rounded-full ${getIconColor(type)}`}>
+  {type === 'health' && <Heart className="w-4 h-4" />}
+  {type === 'power' && <Zap className="w-4 h-4" />}
+  {type === 'spirit' && <Droplet className="w-4 h-4" />}
+  {type === 'credits' && <Coins className="w-4 h-4" />}
+  {type === 'orbs' && <Sparkles className="w-4 h-4" />}
+  {type === 'boost' && <Sparkles className="w-4 h-4" />}
+  {type === 'vendor' && <ShoppingBag className="w-4 h-4" />}
+  {type === 'crafter' && <Hammer className="w-4 h-4" />}
+  {type === 'artifact' && <Award className="w-4 h-4" />}
+  {type === 'retcon' && <RotateCcw className="w-4 h-4" />}
+  {type === 'experience' && <Sparkles className="w-4 h-4" />}
+  {type === 'case' && <Briefcase className="w-4 h-4" />}
+  {type === 'none' && <XCircle className="w-4 h-4" />}
+</div>

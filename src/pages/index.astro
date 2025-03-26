@@ -1,11 +1,289 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import ChapterReward from '../components/ChapterReward.astro';
+import RewardIcon from '../components/RewardIcon.astro';
+import { Shield } from 'lucide-react';
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Marvel Game - Alt Guide Rewards">
+	<main class="min-h-screen">
+		<div class="container mx-auto px-4 py-8">
+      <div class="relative flex items-center justify-center my-6 py-10 mb-12 bg-black rounded-lg overflow-hidden shadow-lg transform transition-transform">
+          <img 
+            src="../src/assets/mho-logo.avif" 
+            alt="Marvel Heroes Omega Logo"
+            class="w-full max-w-[50%] h-auto object-contain"
+          />
+        </div>
+			<header class="text-center py-10 mb-12 bg-slate-800 rounded-lg overflow-hidden border border-slate-700 shadow-lg transform transition-transform">
+				<div class="relative inline-block">
+					<h1 class="text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-red-500 to-yellow-500 mb-2">
+						Alt Guide - Rewards per Chapter
+					</h1>
+					<div class="absolute -bottom-2 left-10 right-10 h-1 bg-gradient-to-r from-red-600 via-red-500 to-yellow-500"></div>
+				</div>
+				<p class="text-gray-300 mt-6 max-w-3xl mx-auto">
+					The #'s are the starting of certain quest lines. For some quests you may enter them 
+					mid quest-line and still receive the reward.
+				</p>
+				<div class="flex flex-wrap justify-center gap-4 mt-4">
+					<div class="bg-slate-700 px-3 py-1 rounded-full text-sm text-gray-200">
+						<span class="font-semibold text-yellow-400">/RNG/</span> = Random drop or find
+					</div>
+					<div class="bg-slate-700 px-3 py-1 rounded-full text-sm text-gray-200">
+						<span class="italic font-semibold text-yellow-400">Italicized</span> = Quest Reward
+					</div>
+				</div>
+			</header>
+
+			<div class="grid gap-8 mb-16">
+				<ChapterReward 
+					title="Prologue" 
+					description="Unfortunately you must complete this part on every hero."
+					rewards={[
+						{ type: "none", description: "NO REWARD" }
+					]}
+				/>
+
+				<ChapterReward 
+					title="Prologue -- Queens" 
+					rewards={[
+						{ type: "experience", description: "Experience" }
+					]}
+				/>
+
+				<ChapterReward 
+					title="Prologue -- The Raft" 
+					rewards={[
+						{ type: "none", description: "NO REWARD" }
+					]}
+				/>
+
+				<ChapterReward 
+					title="Chapter 1" 
+					rewards={[
+						{ 
+							type: "health", 
+							description: "+ 25 PERMANENT HEALTH Enter the Blood Rose -> Defeat Doctor Octopus -> Speak with Cloak",
+							value: 25
+						}
+					]}
+				/>
+
+				<ChapterReward 
+					title="Chapter 2" 
+					rewards={[
+						{ 
+							type: "credits", 
+							description: "CREDITS Speak with Ben Urich -> Speak with Agent Schector (Jersey Docks) -> Defeat Q36"
+						},
+						{ 
+							type: "power", 
+							description: "+ 1 POWER POINT Defeat Hood ->Speak with Maria Hill",
+							value: 1
+						},
+						{ 
+							type: "orbs", 
+							description: "ORBS Speak with Jessica Jones -> Speak with Maria Hill"
+						},
+						{ 
+							type: "boost", 
+							description: "RARITY DROP BOOST 2 HOURS /RNG/ Old Videotape (drop off random mob) -> Speak with Brian Walsh (Jersey Docks) -> Defeat Taskmaster -> Speak with Brian Walsh (Jersey Docks)"
+						}
+					]}
+				/>
+
+				<ChapterReward 
+					title="Chapter 3" 
+					rewards={[
+						{ 
+							type: "vendor", 
+							description: "VENDOR SUMMON Go to Madripoor -> Speak with Agent Leslie Small-> Enter Hydra Outpost (Buccaneer Beach) -> Speak with Agent Leslie Small"
+						},
+						{ 
+							type: "artifact", 
+							description: "YUKIO'S CHARM ARTIFACT Speak with Yukio (Lowtown) -> Find Muramasa blade pieces -> Speak with Yukio (Lowtown)"
+						},
+						{ 
+							type: "spirit", 
+							description: "+ 5 PERMANENT SPIRIT Enter Bamboo Forest -> Go to Poison Glade instance entrance -> Destroy Snake Boss and Snake Statue and kill the boss",
+							value: 5
+						},
+						{ 
+							type: "artifact", 
+							description: "SHIELD MOTION TRACKER ARTIFACT Speak with Agent Wood (Barbershop entrance in Lowtown)"
+						},
+						{ 
+							type: "crafter", 
+							description: "CRAFTER SUMMON Speak with Agent Olsen (Barbershop entrance in Lowtown)"
+						},
+						{ 
+							type: "orbs", 
+							description: "ORBS Go into Hand Tower instance -> Defeat Eelctra -> Speak with Ben Urich"
+						}
+					]}
+				/>
+
+				<ChapterReward 
+					title="Chapter 4" 
+					rewards={[
+						{ 
+							type: "retcon", 
+							description: "RETCON DEVICE Defeat Bullseye (instance in Police Station)"
+						},
+						{ 
+							type: "power", 
+							description: "+ 1 POWER POINT Go to Fisk Tower Instance -> Defeat Bullseye, Elektra, & Kingpin -> Get the Tablet of Life and Time -> Speak with Maria Hill",
+							value: 1
+						}
+					]}
+				/>
+
+				<ChapterReward 
+					title="Chapter 5" 
+					rewards={[
+						{ 
+							type: "health", 
+							description: "+ 50 PERMANENT HEALTH Find the Old Trainyard instance in the Underground -> Defeat Jugernaut -> Speak with Professor X",
+							value: 50
+						}
+					]}
+				/>
+
+				<ChapterReward 
+					title="Chapter 6" 
+					rewards={[
+						{ 
+							type: "spirit", 
+							description: "+ 5 PERMANENT SPIRIT Go to through the Outer Compound to the Inner Compound --> Find Command Bunker Instance Entrance -> Defeat Pyro -> Defeat Magneto -> Speak with William Stryker -> Return to X-mansion -> Speak with Professor X",
+							value: 5
+						}
+					]}
+				/>
+
+				<ChapterReward 
+					title="Chapter 7" 
+					rewards={[
+						{ 
+							type: "artifact", 
+							description: "KAZAR'S PENDANT ARTIFACT Find Sauron's Cave Entrance (Dinasaur Jungle area) -> Defeat Sauron -> Speak with Kazar"
+						},
+						{ 
+							type: "health", 
+							description: "+ 50 PERMANENT HEALTH Go to Evolution Facility in Mutate Marsh -> Defeat Miniboss & Destroy computer",
+							value: 50
+						},
+						{ 
+							type: "artifact", 
+							description: "MAHT'S ARROWHEAD ARTIFACT Speak with Maht the Bug Hunter (Fall Tribe area) -> In Sauron's Cave destroy little bug and big bug -> Go to Thunder River and destroy flying bug -> go to Mutate Marsh and enter Evolution Facility -> destroy Apollo Bug -> Speak with Maht again"
+						},
+						{ 
+							type: "power", 
+							description: "+ 1 POWER POINT Enter Science Station (Thunder River) -> Pick up brood biomass -> go to lab then place antidote into ventilation system",
+							value: 1
+						},
+						{ 
+							type: "experience", 
+							description: "EXPERIENCE BOOST 2 HOUR POTION Find Sinister's Lab in Mutate Marsh -> Defeat Sinister"
+						}
+					]}
+				/>
+
+				<ChapterReward 
+					title="Chapter 8" 
+					rewards={[
+						{ 
+							type: "spirit", 
+							description: "+ 5 PERMANENT SPIRIT Speak with Fury -> Go to Hydra Outpost -> Speak with Agent Meijess -> Destroy Hulkbusters & Defeat Madame Hydra -> Enter Second part of instance -> Defeat Mandarin",
+							value: 5
+						}
+					]}
+				/>
+
+				<ChapterReward 
+					title="Chapter 9" 
+					rewards={[
+						{ 
+							type: "power", 
+							description: "+ 1 POWER POINT Speak with Maria Hill -> Go to Norway -> Go to Ancient Ruins in northern Norway -> Speak with Heimdall",
+							value: 1
+						},
+						{ 
+							type: "spirit", 
+							description: "+ 5 PERMANENT SPIRIT Speak to Fandral -> Travel to Lower Asguard -> Defeat Malekieth -> Travel to Canals of Asguard -> Defeat Malekieth again -> Travel back to Odins Palace -> Speak to Volstagg -> Defeat Loki (Twice, Normal and then Superpowered)",
+							value: 5
+						},
+						{ 
+							type: "case", 
+							description: "Asguardian Siege Case- first time through the story Speak to Einherjar (Lower Asguard) -> Collect Spirits of Ivaldi (Lower Asguard) and Spirits of Yamir (Norway) -> Return to Asguard Crafter"
+						}
+					]}
+				/>
+			</div>
+
+			<div class="bg-slate-700 rounded-lg p-6 border border-slate-600 mb-8">
+				<h2 class="text-2xl font-bold text-yellow-400 mb-4">Summary</h2>
+				<p class="text-gray-200">
+					That's It -- if you are looking to only do the quests that give you +Power Points +Health and +Spirit you're all set. 
+					Hopefully this makes it easier to skip the quests that don't give your alts any benefit such as Orbs or +credits.
+				</p>
+				<p class="text-gray-200 mt-4">
+					Each time through the story you receive:
+				</p>
+				<ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
+					<li class="flex items-center gap-2 text-gray-200">
+						<span class="inline-flex items-center justify-center w-6 h-6 bg-red-600 rounded-full text-white font-bold text-xs">+</span>
+						125 Health
+					</li>
+					<li class="flex items-center gap-2 text-gray-200">
+						<span class="inline-flex items-center justify-center w-6 h-6 bg-blue-600 rounded-full text-white font-bold text-xs">+</span>
+						4 Power Points
+					</li>
+					<li class="flex items-center gap-2 text-gray-200">
+						<span class="inline-flex items-center justify-center w-6 h-6 bg-purple-600 rounded-full text-white font-bold text-xs">+</span>
+						20 Spirit
+					</li>
+					<li class="flex items-center gap-2 text-gray-200">
+						<span class="inline-flex items-center justify-center w-6 h-6 bg-yellow-600 rounded-full text-white font-bold text-xs">+</span>
+						3 Potions
+					</li>
+					<li class="flex items-center gap-2 text-gray-200">
+						<span class="inline-flex items-center justify-center w-6 h-6 bg-green-600 rounded-full text-white font-bold text-xs">+</span>
+						1 Vendor Summon
+					</li>
+					<li class="flex items-center gap-2 text-gray-200">
+						<span class="inline-flex items-center justify-center w-6 h-6 bg-green-600 rounded-full text-white font-bold text-xs">+</span>
+						1 Crafter Summon
+					</li>
+					<li class="flex items-center gap-2 text-gray-200">
+						<span class="inline-flex items-center justify-center w-6 h-6 bg-gray-600 rounded-full text-white font-bold text-xs">+</span>
+						1 Clickable Inventory
+					</li>
+					<li class="flex items-center gap-2 text-gray-200">
+						<span class="inline-flex items-center justify-center w-6 h-6 bg-amber-600 rounded-full text-white font-bold text-xs">+</span>
+						4 Artifacts
+					</li>
+				</ul>
+			</div>
+
+			<div class="bg-gradient-to-r from-red-900 to-red-700 rounded-lg p-6 border border-red-600/30">
+				<h2 class="text-2xl font-bold text-white mb-2 flex items-center">
+					<Shield className="w-6 h-6 mr-2" />
+					Important Note
+				</h2>
+				<p class="text-gray-200 text-lg font-bold">
+					CAN REPEAT STORY MODE FOR ALL BOOSTS IN HEROIC AND SUPERHEROIC MODES!
+				</p>
+			</div>
+
+      <div class="my-4 bg-slate-800 rounded-lg p-6 border border-slate-700 text-center">
+				<p class="text-gray-300 text-sm">
+					Marvel Heroes Omega, all related characters, and the distinctive likenesses thereof are trademarks of Marvel Entertainment, LLC and its subsidiaries, and are protected by intellectual property laws. All rights reserved to Disney and Marvel Entertainment.
+				</p>
+				<p class="text-gray-400 text-xs mt-2">
+					This website is a fan-made guide created for informational purposes only and is not affiliated with, endorsed, sponsored, or specifically approved by Marvel Entertainment, LLC or Disney.
+				</p>
+			</div>
+		</div>
+	</main>
 </Layout>
